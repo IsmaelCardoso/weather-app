@@ -6,20 +6,6 @@ interface IContainerProps {
     period: 'day' | 'afternoon' | 'night'
 }
 
-export const ContainerLoading = styled.View<IContainerProps>`
-    flex: 1;
-
-    justify-content: center;
-    align-items: center;
-
-    background-color: ${({ theme, period }) => period === 'day' ? 
-        theme.colors.background_day : 
-        period === 'afternoon' ? 
-        theme.colors.background_afternoon : 
-        theme.colors.background_night
-    };
-`
-
 export const Container = styled.View<IContainerProps>`
     flex: 1;
     background-color: ${({ theme, period }) => period === 'day' ? 

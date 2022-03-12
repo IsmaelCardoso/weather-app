@@ -12,7 +12,6 @@ import getDayPeriod from '../../utils/getDayPeriod'
 import { useTheme } from 'styled-components'
 
 import {
-    ContainerLoading, 
     Container, 
     Content,
     Neighborhood, 
@@ -69,9 +68,15 @@ const Home = () => {
 
     if(isLoading || isLoadingUpdate) {
         return (
-            <ContainerLoading period={'day'}>
+            <Container 
+                period={dayPeriod} 
+                style={{ 
+                    justifyContent: 'center',
+                    alignItems: 'center' 
+                }}
+            >
                 <ActivityIndicator size="large" color={theme.colors.white} />
-            </ContainerLoading>
+            </Container>
         )
     }
 
