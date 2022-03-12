@@ -1,16 +1,15 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize';
 
 interface IButton {
-  color?: string;
+  color?: string
 }
 
 interface ITitle {
-  light: boolean;
+  textColor: string
 }
 
-export const Container = styled(RectButton)<IButton>`
+export const Container = styled.TouchableOpacity<IButton>`
   width: 100%;
   min-height: 56px;
 
@@ -29,5 +28,8 @@ export const Container = styled(RectButton)<IButton>`
 export const Title = styled.Text<ITitle>`
   font-family: ${({ theme }) => theme.fonts.primary_500};
   font-size: ${RFValue(15)}px;
-  color: ${({ theme, light }) => light ? theme.colors.text : theme.colors.text_detail};
+  color: ${({ theme, textColor }) => !!textColor ? 
+    textColor : 
+    theme.colors.text_detail
+  };
 `;
