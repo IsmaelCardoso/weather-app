@@ -2,6 +2,7 @@ import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/styles/theme';
+import { LocationProvider } from './src/hooks/location'
 
 import {
   useFonts,
@@ -15,6 +16,7 @@ import {
 } from '@expo-google-fonts/inter';
 
 import Home from './src/screens/Home';
+import { StatusBar } from 'expo-status-bar';
 
 
 export default function App() {
@@ -32,7 +34,11 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar 
+      style="light" translucent backgroundColor="transparent" />
+      <LocationProvider>
         <Home />
+      </LocationProvider>
     </ThemeProvider>  
   )
 }
