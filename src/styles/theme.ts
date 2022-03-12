@@ -1,8 +1,11 @@
 export default {
     colors: {
-        background_primary: "#4799cb",
         background_secondary: "#1580c4",
         background_secondary_opacity: "rgba(21, 128, 196, 0.3)",
+        
+        background_day: "#4799cb",
+        background_afternoon: "#084D6E",
+        background_night: "#2a2b29", 
 
         shape: "#F4F5F6",
 
