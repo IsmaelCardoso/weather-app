@@ -4,6 +4,7 @@ interface IWeather {
     id: number,
     main: string,
     description: string,
+    icon: string,
 }
 
 interface IMain {
@@ -24,7 +25,7 @@ interface IClouds {
     all: number
 }
 
-interface LocationData {
+export interface IWeatherData {
     weather: IWeather[],
     main: IMain,
     visibility: number,
@@ -43,7 +44,7 @@ export type LocationContextData = {
     getLocationPermission: () => Promise<void>
     getCurrentLocation: () => Promise<ICoords>
     getWeatherData: () => Promise<any>
-    weatherData: LocationData | undefined
+    weatherData: IWeatherData | undefined
 }
 
 export type LocationProviderProps = {

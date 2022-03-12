@@ -18,7 +18,7 @@ export const Container = styled.TouchableOpacity<IButton>`
   justify-content: center;
 
   background-color: ${({ color, theme }) =>
-    color ? color : theme.colors.shape
+    color ? color : theme.colors.white
   };
 
   border-radius: 10px;

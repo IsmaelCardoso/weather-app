@@ -12,13 +12,14 @@ import { Alert, Platform } from 'react-native'
 import { 
     LocationContextData, 
     LocationProviderProps,
+    IWeatherData,
     ICoords,
 } from './location.type'
 
 export const LocationContext = createContext({} as LocationContextData)
 
 export const LocationProvider = ({ children }: LocationProviderProps) => {
-    const [weatherData, setWeatherData] = useState()
+    const [weatherData, setWeatherData] = useState<IWeatherData>()
 
     const getLocationPermission = async () => {
         try{
@@ -36,8 +37,10 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
     const getCurrentLocation = async(): Promise<ICoords> => {
         let location = {
             coords: {
-                latitude: -23.5626469,
-                longitude: -46.624048,
+                // latitude: -23.5512802,
+                // longitude: -46.6365314,
+                latitude: -23.5499158,
+                longitude: -46.6334289,
             }
         }
 

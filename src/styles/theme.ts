@@ -7,11 +7,11 @@ export default {
         background_afternoon: "#084D6E",
         background_night: "#2a2b29", 
 
-        shape: "#F4F5F6",
+        white: "#F4F5F6",
+        gray: "#BAB8B5",
 
         text: "#FFFFFF",
         text_detail: "#6b9dc6",
-
 
         line: "#8ac6db",
         line_opacity: "rgba(138, 198, 219, .3)",
