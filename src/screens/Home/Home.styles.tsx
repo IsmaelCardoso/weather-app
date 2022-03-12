@@ -2,11 +2,35 @@ import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
-export const Container = styled.View`
+interface IContainerProps {
+    period: 'day' | 'afternoon' | 'night'
+}
+
+export const ContainerLoading = styled.View<IContainerProps>`
     flex: 1;
-    background-color: ${({ theme }) => theme.colors.background_primary};
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: ${({ theme, period }) => period === 'day' ? 
+        theme.colors.background_day : 
+        period === 'afternoon' ? 
+        theme.colors.background_afternoon : 
+        theme.colors.background_night
+    };
+`
+
+export const Container = styled.View<IContainerProps>`
+    flex: 1;
+    background-color: ${({ theme, period }) => period === 'day' ? 
+        theme.colors.background_day : 
+        period === 'afternoon' ? 
+        theme.colors.background_afternoon : 
+        theme.colors.background_night
+    };
     padding: 0 25px;
 `
+
 
 export const Content = styled.View`
     margin-top: ${getStatusBarHeight() + 60}px;
@@ -14,16 +38,9 @@ export const Content = styled.View`
     align-items: center;
 `;
 
-export const City = styled.Text`
+export const Neighborhood = styled.Text`
     font-family: ${({ theme }) => theme.fonts.primary_500};
     font-size: ${RFValue(30)}px;
-
-    color: ${({ theme }) => theme.colors.text};
-`;
-
-export const Neighborhood = styled.Text`
-    font-family: ${({ theme }) => theme.fonts.secondary_600};
-    font-size: ${RFValue(15)}px;
 
     color: ${({ theme }) => theme.colors.text};
 `;
@@ -39,7 +56,12 @@ export const Temperature = styled.Text`
 `;
 
 export const ClimateImageContainer = styled.View`
-    margin-top: 15px;
+    margin: -30px 0;
+`;
+
+export const ClimateImage = styled.Image`
+    width: 180px;
+    height: 180px;
 `;
 
 export const Climate = styled.Text`
