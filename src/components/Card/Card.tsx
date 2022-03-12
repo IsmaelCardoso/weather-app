@@ -9,9 +9,9 @@ import {
 } from './Card.styles'
 
 interface ICardProps {
-  windSpeed: number
-  pressure: number
-  humidity: number
+  windSpeed: string
+  pressure: string
+  humidity: string
 }
 
 const Card = ({ humidity, pressure, windSpeed }: ICardProps): JSX.Element => {
