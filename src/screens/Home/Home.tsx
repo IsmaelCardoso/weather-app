@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, Alert, Platform, ScrollView } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import { useLocation } from '../../hooks/location'
 
@@ -28,11 +29,14 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isLoadingUpdate, setIsLoadingUpdate] = useState(false)
     const [dayPeriod, setDayPeriod] = useState<'day' | 'afternoon' | 'night'>('day')
+
+    const navigation = useNavigation<any>()
     
     const {
         getLocationPermission,
         getWeatherData,
-        weatherData
+        weatherData,
+        isPermitedLocation
     } = useLocation()
 
     const theme = useTheme();
@@ -54,6 +58,7 @@ const Home = () => {
             setIsLoading(true)
             Platform.OS === 'ios' && await getLocationPermission();
 
+            !isPermitedLocation && navigation.navigate('Help')
             await getWeatherData();
             setIsLoading(true)
 
@@ -64,6 +69,7 @@ const Home = () => {
         }
 
         fetchData();
+
     }, []);
 
     if(isLoading || isLoadingUpdate) {

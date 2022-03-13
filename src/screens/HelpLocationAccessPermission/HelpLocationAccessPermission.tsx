@@ -11,12 +11,12 @@ import {
 } from './HelpLocationAccessPermission.styles'
 
 const HelpLocation = () => {
-    const { isPermited } = useLocation()
+    const { isPermitedLocation } = useLocation()
 
     const navigation = useNavigation<any>()
 
     useEffect(() => {
-        isPermited && navigation.navigate('Home')
+        isPermitedLocation && navigation.navigate('Home')
     }, [])
 
     return (

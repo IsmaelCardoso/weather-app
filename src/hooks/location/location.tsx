@@ -20,15 +20,20 @@ export const LocationContext = createContext({} as LocationContextData)
 
 export const LocationProvider = ({ children }: LocationProviderProps) => {
     const [weatherData, setWeatherData] = useState<IWeatherData>()
+    const [isPermitedLocation, setIsPermitedLocation] = useState(false)
 
     const getLocationPermission = async () => {
         try{
             const { status } = await Location.requestForegroundPermissionsAsync()
             if (status !== 'granted') {
+                setIsPermitedLocation(false)
+                
                 return Alert.alert(
-                    'Permissão negada', 'É necessário dar permissão de acesso a localização para continuarmos'
+                    'Permissão negada', 'É necessário dar permissão de acesso a localização para continuarmos',
                 )
             }
+
+            setIsPermitedLocation(true)
         }catch(err: any) {
             throw new Error(err)
         }
@@ -71,7 +76,8 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
                 getLocationPermission, 
                 getCurrentLocation, 
                 getWeatherData, 
-                weatherData
+                weatherData,
+                isPermitedLocation,
             }}
         >
             {children}

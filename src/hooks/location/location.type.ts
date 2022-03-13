@@ -45,6 +45,7 @@ export type LocationContextData = {
     getCurrentLocation: () => Promise<ICoords>
     getWeatherData: () => Promise<any>
     weatherData: IWeatherData | undefined
+    isPermitedLocation: boolean
 }
 
 export type LocationProviderProps = {

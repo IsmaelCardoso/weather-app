@@ -15,8 +15,9 @@ import {
   Inter_500Medium,
 } from '@expo-google-fonts/inter';
 
-import Home from './src/screens/Home';
 import { StatusBar } from 'expo-status-bar';
+
+import Routes from './src/routes'
 
 
 export default function App() {
@@ -37,7 +38,7 @@ export default function App() {
       <StatusBar 
       style="light" translucent backgroundColor="transparent" />
       <LocationProvider>
-        <Home />
+        <Routes />
       </LocationProvider>
     </ThemeProvider>  
   )
